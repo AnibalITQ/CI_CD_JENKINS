@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+}
+
+section {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+#equipo-1 { background-color: #f9e79f; }
+#equipo-2 { background-color: #aed6f1; }
+#equipo-3 { background-color: #f5b7b1; }
+#equipo-4 { background-color: #d7bde2; }
+#equipo-5 { background-color: #a9dfbf; }
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+}
