@@ -27,6 +27,8 @@ pipeline {
                 // Elimina el contenido y transfiere archivos al servidor remoto
                 sshagent (credentials: [SSH_CREDENTIALS_ID]) {
                     sh """
+                    mkdir -p /var/jenkins_home/.ssh
+                    chmod 700 /var/jenkins_home/.ssh
                     ssh-keyscan -p ${env.DEPLOY_PORT} ${env.DEPLOY_SERVER} >> ~/.ssh/known_hosts
                     ssh -p ${env.DEPLOY_PORT} ${env.DEPLOY_SERVER} 'rm -rf ${env.DEPLOY_PATH}/*'
                     scp -P ${env.DEPLOY_PORT} -r * ${env.DEPLOY_SERVER}:${env.DEPLOY_PATH}
