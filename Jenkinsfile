@@ -43,7 +43,7 @@ pipeline {
                 // Reiniciar el servidor web en el servidor remoto
                 sshagent (credentials: [SSH_CREDENTIALS_ID]) {
                     sh """
-                    ssh -p ${env.DEPLOY_PORT} root@${env.DEPLOY_SERVER} 'sudo systemctl restart apache2'
+                    ssh -p ${env.DEPLOY_PORT} root@${env.DEPLOY_SERVER} 'systemctl restart apache2'
                     """
                 }
             }
