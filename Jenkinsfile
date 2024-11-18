@@ -3,7 +3,7 @@ pipeline {
     environment {
         DEPLOY_SERVER = 'root@8.tcp.ngrok.io'           // IP o dominio del servidor de despliegue
         DEPLOY_PORT = '17421'                           // Puerto del servidor de despliegue
-        DEPLOY_PATH = '/usr/local/apache2/htdocs/'
+        DEPLOY_PATH = '/usr/local/apache2/htdocs'
         SSH_CREDENTIALS_ID = 'URIEL_SSH_KEY'            // ID de las credenciales SSH almacenadas en Jenkins
     }
     
