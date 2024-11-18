@@ -1,10 +1,10 @@
 pipeline {
     agent any
     environment {
-        DEPLOY_SERVER = 'root@8.tcp.ngrok.io'           // IP o dominio del servidor de despliegue
-        DEPLOY_PORT = '16632'                           // Puerto del servidor de despliegue
+        DEPLOY_SERVER = '8.tcp.ngrok.io'
+        DEPLOY_PORT = '16632'
         DEPLOY_PATH = '/usr/local/apache2/htdocs'
-        SSH_CREDENTIALS_ID = 'URIEL_SSH_KEY'            // ID de las credenciales SSH almacenadas en Jenkins
+        SSH_CREDENTIALS_ID = 'URIEL_SSH_KEY'
     }
     
     stages {
@@ -29,9 +29,9 @@ pipeline {
                     sh """
                     mkdir -p /var/jenkins_home/.ssh
                     chmod 700 /var/jenkins_home/.ssh
-                    ssh-keyscan -p ${env.DEPLOY_PORT} ${env.DEPLOY_SERVER} >> ~/.ssh/known_hosts
-                    ssh -p ${env.DEPLOY_PORT} ${env.DEPLOY_SERVER} 'rm -rf ${env.DEPLOY_PATH}/*'
-                    scp -P ${env.DEPLOY_PORT} -r * ${env.DEPLOY_SERVER}:${env.DEPLOY_PATH}
+                    ssh-keyscan -p ${env.DEPLOY_PORT} ${env.DEPLOY_SERVER} >> /var/jenkins_home/.ssh/known_hosts
+                    ssh -p ${env.DEPLOY_PORT} root@${env.DEPLOY_SERVER} 'rm -rf ${env.DEPLOY_PATH}/*'
+                    scp -P ${env.DEPLOY_PORT} -r * root@${env.DEPLOY_SERVER}:${env.DEPLOY_PATH}
                     """
                 }
             }
