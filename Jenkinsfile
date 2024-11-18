@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        DEPLOY_SERVER = '8.tcp.ngrok.io'
-        DEPLOY_PORT = '16632'
+        DEPLOY_SERVER = '6.tcp.ngrok.io'
+        DEPLOY_PORT = '11211'
         DEPLOY_PATH = '/usr/local/apache2/htdocs'
         SSH_CREDENTIALS_ID = 'URIEL_SSH_KEY'
     }
